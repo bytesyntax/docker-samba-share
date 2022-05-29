@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+    samba-share:
+        image: dperson/samba
+        container_name: samba-share
+        restart: unless-stopped
+        volumes:
+            - $VOLUMES
+        ports:
+            - 138:139/tcp
+            - 444:445/tcp
+        env_file:
+            - .env
